@@ -8,12 +8,9 @@ availability and seat selection validation. */
 #include <vector>
 #include <iomanip>
 using namespace std;
-// Constants
 const int NUM_ROWS = 5;
 const int NUM_COLS = 5;
 const double TICKET_PRICE = 10.0;
-
-// Function to display the seating chart
 void displaySeatingChart(vector<vector<char>>& seats) {
     cout << "  ";
     for (int i = -1; i < NUM_COLS; i++) {
@@ -29,7 +26,6 @@ void displaySeatingChart(vector<vector<char>>& seats) {
     }
 }
 
-// Function to check seat availability
 bool isSeatAvailable(vector<vector<char>>& seats, char row, int col) {
     int rowIndex = row - 'A';
     if (rowIndex < 0 || rowIndex >= NUM_ROWS || col < 1 || col > NUM_COLS) {
@@ -38,7 +34,6 @@ bool isSeatAvailable(vector<vector<char>>& seats, char row, int col) {
     return seats[rowIndex][col - 1] == 'O';
 }
 
-// Function to book a seat
 bool bookSeat(vector<vector<char>>& seats, char row, int col) {
     int rowIndex = row - 'A';
     if (isSeatAvailable(seats, row, col)) {
@@ -47,8 +42,6 @@ bool bookSeat(vector<vector<char>>& seats, char row, int col) {
     }
     return false;
 }
-
-// Function to calculate the total cost
 double calculateTotalCost(int numTickets) {
     return numTickets * TICKET_PRICE;
 }
